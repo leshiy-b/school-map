@@ -3,7 +3,7 @@ from flask import Flask, request
 app = Flask(__name__)
 
 @app.route('/test_request', methods=['GET'])
-async def test_request():
+def test_request():
     p = request.args["test_p"]
     print(f"test_request: {p}")
 
@@ -12,6 +12,7 @@ async def test_request():
 <body>
 <h1>My First Heading</h1>
 <p>My first paragraph: {p}.</p>
+<img src="images/jpg_44-2.jpg" alt="Plan" width="519" height="415">
 </body>
 </html>    
     """
@@ -23,3 +24,5 @@ async def test_request():
 if __name__ == "__main__":
     from waitress import serve
     serve(app, host="127.0.0.1", port=5000)
+
+#<img src="https://i.pinimg.com/564x/da/dc/9e/dadc9e5808e2e9a2b98fe48217a3e5a7.jpg" alt="Plan" width="519" height="415">

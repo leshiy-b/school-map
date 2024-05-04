@@ -2,17 +2,17 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-@app.route('/test_request', methods=['GET'])
+@app.route('/', methods=['GET'])
 def test_request():
-    p = request.args["test_p"]
-    print(f"test_request: {p}")
-
+    # p = request.args["test_p"]
+    # print(f"test_request: {p}")
+    #
     html_page = f"""
 <html>
 <body>
 <h1>My First Heading</h1>
-<p>My first paragraph: {p}.</p>
-<img src="images/jpg_44-2.jpg" alt="Plan" width="519" height="415">
+<p>My first paragraph.</p>
+<img src="/static/test_plan.png" alt="Plan" width="519" height="415">
 </body>
 </html>    
     """

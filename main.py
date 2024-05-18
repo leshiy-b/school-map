@@ -12,7 +12,10 @@ def test_request():
 <body>
 <h1>My First Heading</h1>
 <p>My first paragraph.</p>
-<img src="/static/test_plan.png" alt="Plan" width="519" height="415">
+<p> <var>i<var> <p>
+<img src="/static/test_plan.png" alt="Plan" width="519" height="415"> 
+<p>Please enter some text below:<p>
+<input type="text" name="first_name" placeholder="John" required>
 </body>
 </html>    
     """

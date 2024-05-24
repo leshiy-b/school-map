@@ -3,24 +3,26 @@ from flask import Flask, request
 app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
-def test_request():
-    # p = request.args["test_p"]
-    # print(f"test_request: {p}")
-    #
+def root():
+    room = request.args.get("room")
+    print(f"room: {room}")
+
     html_page = f"""
 <html>
 <body>
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
-<p> <var>i<var> <p>
+<h1>My test map</h1>
+<p>Search for room number:</p>
+<form action="/">
+<input type="text" name="room" placeholder="" required>
+<input type="submit">
+</form>
 <img src="/static/test_plan.png" alt="Plan" width="519" height="415"> 
-<p>Please enter some text below:<p>
-<input type="text" name="first_name" placeholder="John" required>
 </body>
 </html>    
     """
-
     return html_page, 200
+
+
 
 
 # flask --app main run

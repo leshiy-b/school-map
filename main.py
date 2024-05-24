@@ -19,7 +19,7 @@ def root():
 <img src="/static/test_plan.png" alt="Plan" width="519" height="415"> 
 </body>
 </html>    
-    """
+"""
     return html_page, 200
 
 

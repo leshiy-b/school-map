@@ -1,11 +1,21 @@
 from flask import Flask, request
 
 app = Flask(__name__)
+image = "/static/test_plan.png"
 
 @app.route('/', methods=['GET'])
 def root():
+    image = ""
     room = request.args.get("room")
-    print(f"room: {room}")
+    if room == 2:
+        image = "/static/test_plan2.png"
+    elif room == 3:
+        image = "/static/test_plan3.png"
+    elif room == 4:
+        image = "/static/test_plan4.png"
+    elif room == 5:
+        image = "/static/test_plan5.png"
+    return image
 
     html_page = f"""
 <html>
@@ -16,7 +26,7 @@ def root():
 <input type="text" name="room" placeholder="" required>
 <input type="submit">
 </form>
-<img src="/static/test_plan.png" alt="Plan" width="519" height="415"> 
+<img src= {image} alt="Plan" width="519" height="415"> 
 </body>
 </html>    
 """

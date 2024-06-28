@@ -1,1 +1,6 @@
-{}
+{
+  "floors": [
+    {"default":"test_plan.png", "101":"test_plan2.jpg", "102":"test_plan3.jpg", "103":"test_plan4.jpg"},
+    {"default":"test_plan2.jpg", "201": "test_plan5.jpg", "202": "test_plan1.jpg", "203": "test_plan2.jpg"}
+  ]
+}

@@ -1,36 +1,27 @@
 from flask import Flask, request
 from html_pages import main_html
+import json
+
 
 app = Flask(__name__)
-
+school_images = SchoolImages("rooms.json")
 
 @app.route('/', methods=['GET'])
 def root():
-    image = "/static/test_plan.png"
     room = request.args.get("room")
-    # 1. Learn json format, fill in rooms.json file
-    # 2. Load json from file, convert to dict
-    # 3. Use dict instead of if-else's
-    if room == "2":
-        image = "/static/test_plan2.jpg"
-    elif room == "3":
-        image = "/static/test_plan3.jpg"
-    elif room == "4":
-        image = "/static/test_plan4.jpg"
-    elif room == "5":
-        image = "/static/test_plan5.jpg"
+
+    # json_data = open("rooms.json", "r")
+    # rooms = json.load(json_data)
+    # floors = rooms["floors"]
+    # images = []
+    # for i in floors:
+    #     images.append(i["default"])
+    images = school_images.get(room)
 
     # Add "clear" button
-    # Show several floors
-    return main_html(image), 200
+    # Use room to show proper images
+    return main_html(images), 200
 
-    # {
-    #     "floors": [
-    #                     {"default":"img100", "101":"img1", "102":"img1", "103":"img1"},
-    #                     {"default":"img200", "201": "img1", "202": "img1", "203": "img1"},
-    #                     …
-    #                 ]
-    # }
 
 
 # flask --app main run

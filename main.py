@@ -1,5 +1,6 @@
 from flask import Flask, request
 from html_pages import main_html
+from SchoolImages import SchoolImages
 import json
 
 
@@ -9,15 +10,7 @@ school_images = SchoolImages("rooms.json")
 @app.route('/', methods=['GET'])
 def root():
     room = request.args.get("room")
-
-    # json_data = open("rooms.json", "r")
-    # rooms = json.load(json_data)
-    # floors = rooms["floors"]
-    # images = []
-    # for i in floors:
-    #     images.append(i["default"])
-    images = school_images.get(room)
-
+    images = school_images.create_image_list(room)
     # Add "clear" button
     # Use room to show proper images
     return main_html(images), 200
